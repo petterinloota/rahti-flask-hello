@@ -60,11 +60,11 @@ def mergeDefaultConfig(config):
 
 # Entry function
 def main():
+  app.config['custom'] = {}
   try:
     with open('config/custom.json') as custom_config_file:
       app.config['custom'] = json.load(custom_config_file)
-  except FileNotFoundError:
-    app.config['custom'] = {}
+  except FileNotFoundError:    
     pass
 
   pwd = os.getenv("PASSWORD")
